@@ -1,0 +1,27 @@
+<div *ngIf="isLoading">
+  ... Loading
+</div>
+
+<div *ngIf="!isLoading" class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Latest Post</h2>
+      <div class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
+        <ng-container  *ngIf="!isLoading">
+          <article *ngFor="let post of posts" class="flex max-w-xl flex-col items-start justify-between">
+            <div class="group relative">
+              <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 capitalize">
+                <a [routerLink]="[post.id]">
+                  {{ post.title }}
+                </a>
+              </h3>
+              <p class="mt-5 text-sm leading-6 text-gray-600 line-clamp-3">
+                {{ post.body }}
+              </p>
+            </div>
+          </article>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
